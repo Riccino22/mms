@@ -1,33 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data>
+        <!-- Define an action for the Movies -->
         <record id="mms.movie_action" model="ir.actions.act_window">
-            <field name="name">Movies</field>
-            <field name="res_model">mms.movie</field>
-            <field name="view_mode">tree,form,kanban</field>
+            <field name="name">Movies</field>  <!-- Name of the action -->
+            <field name="res_model">mms.movie</field>  <!-- Model associated with the action -->
+            <field name="view_mode">tree,form,kanban</field>  <!-- View modes supported by the action -->
         </record>           
         
+        <!-- Define a view for the Movie form -->
         <record id="mms.movie_view_form" model="ir.ui.view">
-            <field name="name">mms.movie.form</field>
-            <field name="model">mms.movie</field>
+            <field name="name">mms.movie.form</field>  <!-- Name of the view -->
+            <field name="model">mms.movie</field>  <!-- Model associated with the view -->
             <field name="arch" type="xml">
+                <!-- XML structure defining the form layout -->
                 <form string="">
+                    <!-- Main form view -->
                     <sheet>
                         <group>
-                            <field name="name" />
-                            <field name="synopsis" />
-                            <field name="contact_id" />
+                            <!-- Fields displayed on the first sheet -->
+                            <field name="name" />  <!-- Movie name field -->
+                            <field name="synopsis" />  <!-- Movie synopsis field -->
+                            <field name="contact_id" />  <!-- Contact field -->
                         </group>
                     </sheet>
+                    <!-- Secondary sheet -->
                     <sheet>
                         <group>
-                            <field name="genre_ids" />
-                            <field name="actor_ids" />
+                            <!-- Fields displayed on the second sheet -->
+                            <field name="genre_ids" />  <!-- Genre field -->
+                            <field name="actor_ids" />  <!-- Actors field -->
                         </group>
                     </sheet>
+                    <!-- Chatter section -->
                     <div class="oe_chatter">
-                        <field name="message_follower_ids" />
-                        <field name="message_ids" options="{'post_refesh': 'recipients'}" />
+                        <field name="message_follower_ids" />  <!-- Message followers -->
+                        <field name="message_ids" options="{'post_refesh': 'recipients'}" />  <!-- Message IDs -->
                     </div>
                 </form>
             </field>

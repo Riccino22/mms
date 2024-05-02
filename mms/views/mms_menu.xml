@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-
-
+    <!-- Define a menu item for the Movie Management -->
     <menuitem id="mms_menu_root" action="mms.movie_action" name="Movie Mgmt"/>
-
-
 </odoo>
