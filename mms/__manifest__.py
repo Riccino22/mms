@@ -1,7 +1,7 @@
 {
     'name': 'Movie Management System',
     'version': '1.0',
-    'depends': ['base'],
+    'depends': ['base','mail'],
     'author': "Ino",
     'category': 'Test',
     'description': """

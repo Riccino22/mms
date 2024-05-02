@@ -6,6 +6,31 @@
             <field name="res_model">mms.movie</field>
             <field name="view_mode">tree,form,kanban</field>
         </record>           
-    
+        
+        <record id="mms.movie_view_form" model="ir.ui.view">
+            <field name="name">mms.movie.form</field>
+            <field name="model">mms.movie</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                        <group>
+                            <field name="name" />
+                            <field name="synopsis" />
+                            <field name="contact_id" />
+                        </group>
+                    </sheet>
+                    <sheet>
+                        <group>
+                            <field name="genre_ids" />
+                            <field name="actor_ids" />
+                        </group>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" />
+                        <field name="message_ids" options="{'post_refesh': 'recipients'}" />
+                    </div>
+                </form>
+            </field>
+        </record>
     </data>  
 </odoo>
