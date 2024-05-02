@@ -1,13 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data>
-        <!-- Define an action for the Movies -->
-        <record id="mms.movie_action" model="ir.actions.act_window">
-            <field name="name">Movies</field>  <!-- Name of the action -->
-            <field name="res_model">mms.movie</field>  <!-- Model associated with the action -->
-            <field name="view_mode">tree,form,kanban</field>  <!-- View modes supported by the action -->
-        </record>           
-        
         <!-- Define a view for the Movie form -->
         <record id="mms.movie_view_form" model="ir.ui.view">
             <field name="name">mms.movie.form</field>  <!-- Name of the view -->
@@ -19,9 +12,13 @@
                     <sheet>
                         <group>
                             <!-- Fields displayed on the first sheet -->
+                            <field name="image" widget="image" filename="movie_img" />  <!-- Image
+                            field -->
                             <field name="name" />  <!-- Movie name field -->
                             <field name="synopsis" />  <!-- Movie synopsis field -->
+                            <field name="trailer_url" widget="url" /> <!-- Movie Trailer -->
                             <field name="contact_id" />  <!-- Contact field -->
+                            <field name="format_id" />  <!-- Format field -->
                         </group>
                     </sheet>
                     <!-- Secondary sheet -->
@@ -35,10 +32,29 @@
                     <!-- Chatter section -->
                     <div class="oe_chatter">
                         <field name="message_follower_ids" />  <!-- Message followers -->
-                        <field name="message_ids" options="{'post_refesh': 'recipients'}" />  <!-- Message IDs -->
+                        <field name="message_ids" options="{'post_refesh': 'recipients'}" />  <!--
+                        Message IDs -->
                     </div>
                 </form>
             </field>
         </record>
-    </data>  
+        <record id="mms.movie_view_tree" model="ir.ui.view">
+            <field name="name">mms.movie.tree</field>
+            <field name="model">mms.movie</field>
+            <field name="arch" type="xml">
+                <tree string="">
+                    <field name="name" />
+                    <field name="contact_id" />
+                    <field name="format_id" />
+                </tree>
+            </field>
+        </record>
+        <!-- Define an action for the Movies -->
+        <record id="mms.movie_action" model="ir.actions.act_window">
+            <field name="name">Movies</field>  <!-- Name of the action -->
+            <field name="res_model">mms.movie</field>  <!-- Model associated with the action -->
+            <field name="view_mode">tree,form,kanban</field>  <!-- View modes supported by the action -->
+        </record>
+
+    </data>
 </odoo>
