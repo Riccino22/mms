@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="mms.movie_action" model="ir.actions.act_window">
+            <field name="name">Movies</field>
+            <field name="res_model">mms.movie</field>
+            <field name="view_mode">tree,form,kanban</field>
+        </record>           
+    
+    </data>  
+</odoo>
