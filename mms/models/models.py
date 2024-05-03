@@ -13,7 +13,13 @@ class Movie(models.Model):
     format_id = fields.Many2one("mms.format", string="Format", tracking=True)  # Many-to-one relationship with formats
     image = fields.Binary(string="Image", attachment=True, help="Select image here")  # Binary field for the movie image
     trailer_url = fields.Char("Trailer URL", tracking=True)  # Field for the movie trailer URL
-
+    status = fields.Selection([
+        ( "stock" , "stock" ),
+        ( "lost" , "lost" ),
+        ( "loaned" , "loaned" )
+    ])
+    #lend_id = fields.Many2one("mms.lend", string="Lend")  
+    
 class Actor(models.Model):
     _name = "mms.actor"  # Define the model name for actors
     _description = "Cast"  # Description for the model
@@ -32,4 +38,17 @@ class Format(models.Model):
    _name = "mms.format"  # Specify the internal identifier for the model
    _description = "Movie format"  # Provide a description for the model
    name = fields.Char("Format")  # Define a field to store the format name
-  
+"""
+class Lend(models.Model):
+    _name = "mms.lend"
+    _description = "Lend list"
+    movie_id = fields.One2many("mms.movie", "lend_id", string="Movie")
+    partner_id = fields.One2many("res.partner", string="Contact")
+    agree_return_date = fields.Datetime("Agree return date")
+    effective_return_date = fields.Datetime("Effective return date")
+    status = fields.Selection([
+        ( "stock" , "stock" ),
+        ( "lost" , "lost" ),
+        ( "loaned" , "loaned" )
+    ])
+"""

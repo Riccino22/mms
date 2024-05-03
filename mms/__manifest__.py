@@ -11,7 +11,8 @@
     'data': [
         'security/ir.model.access.csv',
         'views/mms_movie.xml',
-        'views/mms_menu.xml'
+        'views/mms_menu.xml',
+        'wizard/mms_lend_movie.xml'
     ],
     # data files containing optionally loaded demonstration data
     'demo': [

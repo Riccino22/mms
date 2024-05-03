@@ -3,3 +3,4 @@ access_mms_movie,mms.movie,model_mms_movie,base.group_user,1,1,1,1
 access_mms_actor,mms.actor,model_mms_actor,base.group_user,1,1,1,1
 access_mms_genre,mms.genre,model_mms_genre,base.group_user,1,1,1,1
 access_mms_format,mms.format,model_mms_format,base.group_user,1,1,1,1
+access_mms_lend_movie,mms.lend_movie,model_mms_lend_movie,base.group_user,1,1,1,1

@@ -1,6 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data>
+        <record id="mms.movie_view_search" model="ir.ui.view">
+            <field name="name">mms.movie.search</field>
+            <field name="model">mms.movie</field>
+            <field name="arch" type="xml">
+                <search>
+                    <filter string="Action Movies" name="filter_action" domain="[('genre_ids.name', '=', 'Action')]" />
+                    <filter string="Drama Movies" name="filter_drama" domain="[('genre_ids.name', '=', 'Drama')]" />   
+                    <filter string="Loaned" name="filter_loaned"  domain="[('status', '=', 'loaned')]" />   
+                    <filter string="Lost" name="filter_lost"  domain="[('status', '=', 'lost')]" /> 
+                    <filter string="In stock" name="filter_stock"  domain="[('status', '=', 'stock')]" />                          
+                    <field name="name" />
+                    <field name="genre_ids" />
+                    <field name="actor_ids" />
+                    <field name="format_id" />
+                </search>
+            </field>
+        </record>
         <!-- Define a view for the Movie form -->
         <record id="mms.movie_view_form" model="ir.ui.view">
             <field name="name">mms.movie.form</field>  <!-- Name of the view -->
@@ -10,29 +27,49 @@
                 <form string="">
                     <!-- Main form view -->
                     <sheet>
-                        <group>
-                            <!-- Fields displayed on the first sheet -->
-                            <field name="image" widget="image" filename="movie_img" />  <!-- Image
-                            field -->
-                            <field name="name" />  <!-- Movie name field -->
-                            <field name="synopsis" />  <!-- Movie synopsis field -->
-                            <field name="trailer_url" widget="url" /> <!-- Movie Trailer -->
-                            <field name="contact_id" />  <!-- Contact field -->
-                            <field name="format_id" />  <!-- Format field -->
+                      
+              
+                                <field name="image" widget="image" class="oe_avatar" filename="movie_img" />  <!-- Image
+                                    field -->
+                                    <div class="oe_title">
+                                        <h1>
+                                            <div class="d-flex">
+                                                <field name="name" placeholder="Movie Name" class="text-break"/>
+                                            </div>
+                                        </h1>
+                                        <div class="d-flex">
+                                            <field name="synopsis" />  <!-- Movie synopsis field -->
+                                        </div>
+                                    </div>
+                     
+                       
+                        <group col="4">
+                            <group>                           
+                                <!-- Fields displayed on the first sheet -->
+
+                                    <field name="trailer_url" widget="url" /> <!-- Movie Trailer -->
+                                    <field name="format_id" />  <!-- Format field -->
+
+                            </group>
+                            <group>
+
+                                    <!-- Fields displayed on the second sheet -->
+                                    <field name="genre_ids" widget="many2many_tags" />  <!-- Genre field -->
+                                    <field name="actor_ids" widget="many2many_tags" />  <!-- Actors field -->
+                            </group>
+                            <group>
+
+                                <field name="contact_id" />  <!-- Contact field -->
+                                <field name="status" /> <!-- Movie Status -->
+
+                            </group>
                         </group>
                     </sheet>
                     <!-- Secondary sheet -->
-                    <sheet>
-                        <group>
-                            <!-- Fields displayed on the second sheet -->
-                            <field name="genre_ids" />  <!-- Genre field -->
-                            <field name="actor_ids" />  <!-- Actors field -->
-                        </group>
-                    </sheet>
                     <!-- Chatter section -->
                     <div class="oe_chatter">
                         <field name="message_follower_ids" />  <!-- Message followers -->
-                        <field name="message_ids" options="{'post_refesh': 'recipients'}" />  <!--
+                        <field name="message_ids" options="{'post_refresh': 'recipients'}" />  <!--
                         Message IDs -->
                     </div>
                 </form>
@@ -51,7 +88,7 @@
         </record>
         <!-- Define an action for the Movies -->
         <record id="mms.movie_action" model="ir.actions.act_window">
-            <field name="name">Movies</field>  <!-- Name of the action -->
+            <field name="name">Collection</field>  <!-- Name of the action -->
             <field name="res_model">mms.movie</field>  <!-- Model associated with the action -->
             <field name="view_mode">tree,form,kanban</field>  <!-- View modes supported by the action -->
         </record>
