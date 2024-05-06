@@ -13,13 +13,15 @@
             <field name="model">mms.lend</field>
             <field name="arch" type="xml">
                 <form>
+                    <header>
+                        <field name="status" widget="statusbar" options="{'clickable': '1'}" />
+                    </header>
                     <sheet>
                         <group>
                             <field name="movie_id" />
                             <field name="partner_id" />
                             <field name="agree_return_date" />
                             <field name="effective_return_date" />
-                            <field name="status" />
                         </group>
                     </sheet>
                     <div class="oe_chatter">

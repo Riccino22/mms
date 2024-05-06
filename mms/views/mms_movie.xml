@@ -26,6 +26,9 @@
                 <!-- XML structure defining the form layout -->
                 <form string="">
                     <!-- Main form view -->
+                    <header>
+                        <field name="status" widget="statusbar"/>
+                    </header>
                     <sheet>
                       
               
