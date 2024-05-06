@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <data>
+        <record id="mms.lend_action" model="ir.actions.act_window">
+            <field name="name">Lends</field>
+            <field name="res_model">mms.lend</field>
+            <field name="view_mode">tree,form,kanban</field>
+        </record>
+    
+        <record id="mms.lend_view_form" model="ir.ui.view">
+            <field name="name">mms.lend.view.form</field>
+            <field name="model">mms.lend</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="movie_id" />
+                            <field name="partner_id" />
+                            <field name="agree_return_date" />
+                            <field name="effective_return_date" />
+                            <field name="status" />
+                        </group>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" />  <!-- Message followers -->
+                        <field name="message_ids" options="{'post_refresh': 'recipients'}" />  <!--
+                        Message IDs -->
+                    </div>
+                </form>
+            </field>
+        </record>
+    
+    </data>
+    
+</odoo>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="mms.genre_action" model="ir.actions.act_window">
+            <field name="name">Genres</field>
+            <field name="res_model">mms.genre</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+    </data>
+</odoo>

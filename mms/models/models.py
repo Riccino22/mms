@@ -38,7 +38,24 @@ class Format(models.Model):
    _name = "mms.format"  # Specify the internal identifier for the model
    _description = "Movie format"  # Provide a description for the model
    name = fields.Char("Format")  # Define a field to store the format name
+   
+   
+class Lend(models.Model):
+    _name = "mms.lend"
+    _description = "Historial de prestamos"
+    _inherit = 'mail.thread'  # Inherit mail thread functionality
+    
+    movie_id = fields.Many2one("mms.movie", string="Movie")
+    partner_id = fields.Many2one("res.partner", string="Contact")
+    agree_return_date = fields.Datetime(string="Agree return date")
+    effective_return_date = fields.Datetime(string="Effective return date")
+    status = fields.Selection([
+        ( "active" , "Active" ),
+        ( "returned" , "Returned" ),
+        ( "lost" , "Lost" ),
+    ])
 """
+
 class Lend(models.Model):
     _name = "mms.lend"
     _description = "Lend list"

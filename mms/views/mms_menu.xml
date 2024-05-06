@@ -1,5 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <!-- Define a menu item for the Movie Management -->
-    <menuitem id="mms_menu_root" action="mms.movie_action" name="Movie Mgmt"/>
+    <data>
+    
+            <!-- Define a menu item for the Movie Management -->
+    <menuitem id="mms_menu_root" action="mms.movie_action" name="Movie Mgmt">
+        <menuitem id="mms.lend_menu" action="mms.lend_action" name="Lends" />
+        <menuitem id="mms.settings_menu" name="Settings">
+            <menuitem id="mms.actor_menu" action="mms.actor_action" name="Actors"/>
+            <menuitem id="mms.genre_menu" action="mms.genre_action" name="Genres"/>
+            <menuitem id="mms.format_menu" action="mms.format_action" name="Movie Formats"/>
+        </menuitem>
+    </menuitem>
+    
+    </data>
+    
 </odoo>
