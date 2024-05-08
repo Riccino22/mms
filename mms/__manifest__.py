@@ -1,7 +1,7 @@
 {
     'name': 'Movie Management System',
     'version': '1.0',
-    'depends': ['base','mail'],
+    'depends': ['base','mail','crm'],
     'author': "Ino",
     'category': 'Test',
     'description': """
@@ -15,6 +15,8 @@
         'views/mms_actor.xml',
         'views/mms_format.xml',
         'views/mms_genre.xml',
+        'views/mms_loan_request.xml',
+        #'views/res_partner.xml',
         'views/mms_menu.xml'
         #'wizard/mms_lend_movie.xml'
     ],

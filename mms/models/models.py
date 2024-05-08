@@ -19,7 +19,13 @@ class Movie(models.Model):
         ( "loaned" , "loaned" )
     ])
     #lend_id = fields.Many2one("mms.lend", string="Lend")  
+    loan_request_ids = fields.One2many("mms.loan_request", "movie_id")
     
+class Contact(models.Model):
+    _inherit = "res.partner"
+    
+    #in_blacklist = fields.Boolean("In black list", default=False)
+
 class Actor(models.Model):
     _name = "mms.actor"  # Define the model name for actors
     _description = "Cast"  # Description for the model
@@ -42,7 +48,7 @@ class Format(models.Model):
    
 class Lend(models.Model):
     _name = "mms.lend"
-    _description = "Historial de prestamos"
+    _description = "Loan history"
     _inherit = 'mail.thread'  # Inherit mail thread functionality
     
     movie_id = fields.Many2one("mms.movie", string="Movie")
@@ -50,22 +56,31 @@ class Lend(models.Model):
     agree_return_date = fields.Datetime(string="Agree return date")
     effective_return_date = fields.Datetime(string="Effective return date")
     status = fields.Selection([
-        ( "active" , "Active" ),
+        ( "loaned" , "Loaned" ),
         ( "returned" , "Returned" ),
         ( "lost" , "Lost" ),
     ])
-"""
 
-class Lend(models.Model):
-    _name = "mms.lend"
-    _description = "Lend list"
-    movie_id = fields.One2many("mms.movie", "lend_id", string="Movie")
-    partner_id = fields.One2many("res.partner", string="Contact")
-    agree_return_date = fields.Datetime("Agree return date")
-    effective_return_date = fields.Datetime("Effective return date")
-    status = fields.Selection([
-        ( "stock" , "stock" ),
-        ( "lost" , "lost" ),
-        ( "loaned" , "loaned" )
-    ])
+    @api.depends("movie_id", "partner_id")
+    def _compute_display_name(self):
+        for record in self:
+            record.display_name = "{movie} - {contact}".format(movie=record.movie_id.name, contact=record.partner_id.name)
+
+class LoanRequest(models.Model):
+    _name = "mms.loan_request"
+    _description = "Loan request"
+    
+    movie_id = fields.Many2one("mms.movie", string="Movie")
+    partner_id = fields.Many2one("res.partner", string="Contact")
+    
+    @api.depends("movie_id", "partner_id")
+    def _compute_display_name(self):
+        for record in self:
+            record.display_name = "{movie} - {contact}".format(movie=record.movie_id.name, contact=record.partner_id.name)
+"""
+    @api.model
+    def get_waiting_borrowers(self, movie_id):
+        loans = self.search([('movie_id', '=', movie_id)])
+        return loans.mapped('partner_id')
+        
 """

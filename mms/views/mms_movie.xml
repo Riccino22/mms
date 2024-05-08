@@ -15,6 +15,7 @@
                     <field name="genre_ids" />
                     <field name="actor_ids" />
                     <field name="format_id" />
+                    
                 </search>
             </field>
         </record>
@@ -24,14 +25,12 @@
             <field name="model">mms.movie</field>  <!-- Model associated with the view -->
             <field name="arch" type="xml">
                 <!-- XML structure defining the form layout -->
-                <form string="">
+                <form>
                     <!-- Main form view -->
                     <header>
                         <field name="status" widget="statusbar"/>
                     </header>
                     <sheet>
-                      
-              
                                 <field name="image" widget="image" class="oe_avatar" filename="movie_img" />  <!-- Image
                                     field -->
                                     <div class="oe_title">
@@ -41,12 +40,18 @@
                                             </div>
                                         </h1>
                                         <div class="d-flex">
-                                            <field name="synopsis" />  <!-- Movie synopsis field -->
+                                            <field name="synopsis" placeholder="synopsis" />  <!-- Movie synopsis field -->
                                         </div>
                                     </div>
                      
                        
                         <group col="4">
+                            <group>
+
+                                <field name="contact_id" />  <!-- Contact field -->
+                                <field name="status" /> <!-- Movie Status -->
+
+                            </group>
                             <group>                           
                                 <!-- Fields displayed on the first sheet -->
 
@@ -60,13 +65,9 @@
                                     <field name="genre_ids" widget="many2many_tags" />  <!-- Genre field -->
                                     <field name="actor_ids" widget="many2many_tags" />  <!-- Actors field -->
                             </group>
-                            <group>
 
-                                <field name="contact_id" />  <!-- Contact field -->
-                                <field name="status" /> <!-- Movie Status -->
-
-                            </group>
                         </group>
+                        <field name="loan_request_ids" />
                     </sheet>
                     <!-- Secondary sheet -->
                     <!-- Chatter section -->
