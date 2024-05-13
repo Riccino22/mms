@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data>
-        <record id="mms.format_action" model="ir.actions.act_window">
+        <record id="mms_format_action" model="ir.actions.act_window">
             <field name="name">Formats</field>
             <field name="res_model">mms.format</field>
             <field name="view_mode">tree,form</field>

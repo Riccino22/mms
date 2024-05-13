@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data>
-        <record id="mms.movie_view_search" model="ir.ui.view">
+        <record id="mms_movie_view_search" model="ir.ui.view">
             <field name="name">mms.movie.search</field>
             <field name="model">mms.movie</field>
             <field name="arch" type="xml">
@@ -20,7 +20,7 @@
             </field>
         </record>
         <!-- Define a view for the Movie form -->
-        <record id="mms.movie_view_form" model="ir.ui.view">
+        <record id="mms_movie_view_form" model="ir.ui.view">
             <field name="name">mms.movie.form</field>  <!-- Name of the view -->
             <field name="model">mms.movie</field>  <!-- Model associated with the view -->
             <field name="arch" type="xml">
@@ -41,6 +41,7 @@
                                         </h1>
                                         <div class="d-flex">
                                             <field name="synopsis" placeholder="synopsis" />  <!-- Movie synopsis field -->
+                                            <button name="lend_movie" string="Mi Botón" type="object" class="btn-primary"/>
                                         </div>
                                     </div>
                      
@@ -48,7 +49,7 @@
                         <group col="4">
                             <group>
 
-                                <field name="contact_id" />  <!-- Contact field -->
+                                <field name="partner_id" />  <!-- Contact field -->
                                 <field name="status" /> <!-- Movie Status -->
 
                             </group>
@@ -67,7 +68,11 @@
                             </group>
 
                         </group>
-                        <field name="loan_request_ids" />
+                        <field name="loan_request_ids" widget="one2many_list">
+                            <tree>
+                                <field name="movie_id" />
+                            </tree>
+                        </field>
                     </sheet>
                     <!-- Secondary sheet -->
                     <!-- Chatter section -->
@@ -79,19 +84,19 @@
                 </form>
             </field>
         </record>
-        <record id="mms.movie_view_tree" model="ir.ui.view">
+        <record id="mms_movie_view_tree" model="ir.ui.view">
             <field name="name">mms.movie.tree</field>
             <field name="model">mms.movie</field>
             <field name="arch" type="xml">
                 <tree string="">
                     <field name="name" />
-                    <field name="contact_id" />
+                    <field name="partner_id" />
                     <field name="format_id" />
                 </tree>
             </field>
         </record>
         <!-- Define an action for the Movies -->
-        <record id="mms.movie_action" model="ir.actions.act_window">
+        <record id="mms_movie_action" model="ir.actions.act_window">
             <field name="name">Collection</field>  <!-- Name of the action -->
             <field name="res_model">mms.movie</field>  <!-- Model associated with the action -->
             <field name="view_mode">tree,form,kanban</field>  <!-- View modes supported by the action -->

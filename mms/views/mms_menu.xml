@@ -3,13 +3,13 @@
     <data>
     
             <!-- Define a menu item for the Movie Management -->
-    <menuitem id="mms_menu_root" action="mms.movie_action" name="Movie Mgmt">
-        <menuitem id="mms.lend_menu" action="mms.lend_action" name="Lends" />
-        <menuitem id="mms.loan_request_menu" action="mms.loan_request_action" name="Loan request" />
-        <menuitem id="mms.settings_menu" name="Settings">
-            <menuitem id="mms.actor_menu" action="mms.actor_action" name="Actors"/>
-            <menuitem id="mms.genre_menu" action="mms.genre_action" name="Genres"/>
-            <menuitem id="mms.format_menu" action="mms.format_action" name="Movie Formats"/>
+    <menuitem id="mms_menu_root" action="mms_movie_action" name="Movie Mgmt">
+        <menuitem id="mms_lend_menu" action="mms_lend_action" name="Lends" />
+        <menuitem id="mms_loan_request_menu" action="mms_loan_request_action" name="Loan request" />
+        <menuitem id="mms_settings_menu" name="Settings">
+            <menuitem id="mms_actor_menu" action="mms_actor_action" name="Actors"/>
+            <menuitem id="mms_genre_menu" action="mms_genre_action" name="Genres"/>
+            <menuitem id="mms_format_menu" action="mms_format_action" name="Movie Formats"/>
         </menuitem>
     </menuitem>
     

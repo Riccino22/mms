@@ -1,14 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data>        
-        <record id="res.partner_view_form" model="ir.ui.view">
-            <field name="name">res.partner.form.inherit</field>
+        <record id="view_partner_form_inherit" model="ir.ui.view">
+            <field name="name">res.partner.inherit</field>
             <field name="model">res.partner</field>
-            <field name="inherit_id" ref="res.partner_view_form" />
+            <field name="inherit_id" ref="base.view_partner_form" />
             <field name="arch" type="xml">
-                <!--xpath expr="//field[@name='parent_id']" position="before">
+                <xpath expr="//field[@name='category_id']" position="after">
                     <field name="in_blacklist" />
-                </xpath-->
+                </xpath>
+                <xpath expr="//page[@name='contact_addresses']" position="before">
+                    <page string="Loan Request">
+                        <field name="loan_request_ids" widget="one2many_list" />
+                    </page>
+                </xpath>
+                
             </field>
         </record>
     </data>
