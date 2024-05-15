@@ -6,6 +6,7 @@
     <menuitem id="mms_menu_root" action="mms_movie_action" name="Movie Mgmt">
         <menuitem id="mms_lend_menu" action="mms_lend_action" name="Lends" />
         <menuitem id="mms_loan_request_menu" action="mms_loan_request_action" name="Loan request" />
+        <menuitem id="mms_lend_wizard_menu" action="mms_lend_wizard_action" name="Lend Movie"/>
         <menuitem id="mms_settings_menu" name="Settings">
             <menuitem id="mms_actor_menu" action="mms_actor_action" name="Actors"/>
             <menuitem id="mms_genre_menu" action="mms_genre_action" name="Genres"/>

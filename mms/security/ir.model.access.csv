@@ -5,3 +5,4 @@ access_mms_genre,mms.genre,model_mms_genre,base.group_user,1,1,1,1
 access_mms_format,mms.format,model_mms_format,base.group_user,1,1,1,1
 access_mms_lend,mms.lend,model_mms_lend,base.group_user,1,1,1,1
 access_mms_loan_request,mms.loan_request,model_mms_loan_request,base.group_user,1,1,1,1
+access_mms_lend_wizard,mms.lend.wizard,model_mms_lend_wizard,base.group_user,1,1,1,1

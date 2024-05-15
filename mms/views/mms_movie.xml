@@ -95,6 +95,21 @@
                 </tree>
             </field>
         </record>
+        <record id="mms.movie_view_kanban" model="ir.ui.view">
+            <field name="name">mms.movie.kanban</field>
+            <field name="model">mms.movie</field>
+            <field name="arch" type="xml">
+                <kanban>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <field name="name" />
+                            <img t-att-src="kanban_image('mms.movie', 'image_128', record.id.raw_value)" alt="Product" class="o_image_64_contain"/>
+                            
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
         <!-- Define an action for the Movies -->
         <record id="mms_movie_action" model="ir.actions.act_window">
             <field name="name">Collection</field>  <!-- Name of the action -->

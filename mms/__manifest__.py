@@ -13,6 +13,7 @@
         'views/mms_movie.xml',
         'views/mms_loan_request.xml',
         'views/mms_lend.xml',
+        'wizard/mms_lend_wizard.xml',
         'views/mms_actor.xml',
         'views/mms_format.xml',
         'views/mms_genre.xml',
