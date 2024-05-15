@@ -28,6 +28,7 @@
                 <form>
                     <!-- Main form view -->
                     <header>
+                        <button name="open_lend_wizard_action" string="Lend movie" type="object" class="btn-primary"/>
                         <field name="status" widget="statusbar"/>
                     </header>
                     <sheet>
@@ -41,7 +42,6 @@
                                         </h1>
                                         <div class="d-flex">
                                             <field name="synopsis" placeholder="synopsis" />  <!-- Movie synopsis field -->
-                                            <button name="lend_movie" string="Mi Botón" type="object" class="btn-primary"/>
                                         </div>
                                     </div>
                      

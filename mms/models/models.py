@@ -21,8 +21,9 @@ class Movie(models.Model):
     #lend_id = fields.Many2one("mms.lend", string="Lend")  
     loan_request_ids = fields.One2many("mms.loan_request", "movie_id", string='Loan')
     
-    def lend_movie(self):
-        pass
+    def open_lend_wizard_action(self):
+        action = self.env['ir.actions.act_window']._for_xml_id('mms.mms_lend_wizard_action')
+        return action
 """
     loan_request_ids = fields.One2many("mms.loan_request", "movie_id", string='Loan', compute='_compute_loan')
 
