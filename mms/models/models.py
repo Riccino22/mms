@@ -17,21 +17,15 @@ class Movie(models.Model):
         ( "stock" , "stock" ),
         ( "lost" , "lost" ),
         ( "loaned" , "loaned" )
-    ])
+    ], tracking=True)
     #lend_id = fields.Many2one("mms.lend", string="Lend")  
     loan_request_ids = fields.One2many("mms.loan_request", "movie_id", string='Loan')
     
     def open_lend_wizard_action(self):
         action = self.env['ir.actions.act_window']._for_xml_id('mms.mms_lend_wizard_action')
+        print("------------------------------------------------")
         return action
-"""
-    loan_request_ids = fields.One2many("mms.loan_request", "movie_id", string='Loan', compute='_compute_loan')
 
-    @api.depends('loan_request_ids')
-    def _compute_loan(self):
-        for record in self:
-            record.loan_request_ids = self.env["mms.loan_request"].search([('movie_id', '=', record.name)])
-"""
     
 class ResPartnerInherit(models.Model):
     _inherit = "res.partner"

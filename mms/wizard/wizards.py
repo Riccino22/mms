@@ -14,3 +14,17 @@ class LendMovie(models.TransientModel):
         ( "returned" , "Returned" ),
         ( "lost" , "Lost" ),
     ])
+    @api.model
+    def default_get(self, fields):                         
+        res = super(LendMovie, self).default_get(fields)  
+        return res                                         
+    
+
+    def record_lend(self):                      
+        self.ensure_one()                                  
+        
+        self.env['mms.lend'].create({                      
+            'movie_id': self.movie_id.id,
+            'partner_id': self.partner_id.id
+        })
+        return {'type': 'ir.actions.act_window_close'}
