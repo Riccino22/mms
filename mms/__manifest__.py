@@ -14,6 +14,7 @@
         'views/mms_loan_request.xml',
         'views/mms_lend.xml',
         'wizard/mms_lend_wizard.xml',
+        'wizard/mms_new_loan_request.xml',
         'views/mms_actor.xml',
         'views/mms_format.xml',
         'views/mms_genre.xml',

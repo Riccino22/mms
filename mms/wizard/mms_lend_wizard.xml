@@ -9,8 +9,11 @@
                     <group>
                         <field name="movie_id" />
                         <field name="partner_id" />
-                        <button name="record_lend" type="object" string="save" class="btn-primary"/>
                     </group>
+                    <footer>
+                        <button name="record_lend" type="object" string="save" class="btn-primary"/>
+                        <button special="cancel" string="Cancel" />
+                    </footer>
                 </form>
             </field>
         </record>

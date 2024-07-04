@@ -5,7 +5,18 @@
             <field name="name">res.partner.inherit</field>
             <field name="model">res.partner</field>
             <field name="inherit_id" ref="base.view_partner_form" />
-            <field name="arch" type="xml">
+            <field name="arch" type="xml">              
+            <xpath expr="//sheet" position="before">
+                <header>
+                    <button name="%(mms.mms_new_loan_request_action)d"
+                    type="action" string="loan request"
+                    class="btn-primary" context="{'default_partner_id': active_id}" />
+                    <!-- Add and Exit to blacklist -->
+                    <button name="add_to_blacklist"
+                    type="object" string="add to blacklist"
+                    class="btn-primary" />
+                </header>
+            </xpath>
                 <xpath expr="//field[@name='category_id']" position="after">
                     <field name="in_blacklist" />
                 </xpath>
